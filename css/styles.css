@@ -109,7 +109,9 @@ a{
 
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-
+.nav-list.active{
+    color: var(--pressed-state);
+}
 
 .nav-list.active::after{
     content: "";
@@ -341,12 +343,11 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     background-color: var(--pressed-state);
 }
 
-.social-icons{                
-   fill: var(--accent-color);
-    
-   
-     
-}
+.social-icons{
+    fill: var(--light-color);
+  }
+
+
 .team-mates{
     text-align: center;
  font-weight: 500;
@@ -400,10 +401,7 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
     width: 168px;
     height: 88px;
-    
-   
-   
-}
+  }
 
 .clients-icon{
     fill: currentColor;
@@ -417,20 +415,22 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
     height: 100%;
     border: 1px solid var(--light-slate);
-border-radius: 4px;
-transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius: 4px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.clients-link:hover {
+.clients-link:hover,
+.clients-link:focus{
     border-color: var(--pressed-state);
-}
-
-.clients-link:hover .clients-icon {
     color: var(--pressed-state);
 }
 
-.s-icons-foot{
+/* .clients-link:hover .clients-icon { */
+    color: var(--pressed-state);
+}
+
+.icons-foot{
     fill: var(--light-color);
 }
 
@@ -483,7 +483,11 @@ gap: 16px;
 
 }
 
-
+/**
+  |============================
+  | сторінка portfolio
+  |============================
+*/
 
 .section-portfolio{
     padding-top: 96px;
@@ -496,6 +500,50 @@ gap: 16px;
     row-gap: 48px;
     
  }
+
+.portfolio-link{
+    display: block;
+
+}
+
+.portfolio-link:hover,
+.portfolio-link:focus{
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.box{
+    position: relative;
+    width: 360px;
+    height: 300px;
+    overflow: hidden;
+   
+}
+
+
+.box:hover .overlay-text{
+    transform: translateY(0);
+}
+
+.overlay-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-brand);
+    
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+     
+     
+    padding-top: 40px;
+    padding-right: 32px;
+    padding-left: 32px;
+    font-size: 16px;
+       line-height: 1.5;
+     letter-spacing: 0.32px;
+     color: var(--light-color);
+}
 
 .portfolio-item{
 width: calc((100% - 48px) / 3);
@@ -535,16 +583,12 @@ width: calc((100% - 48px) / 3);
     border: 1px solid var(--accent-color);
     border-radius: 4px;
     /*  Set transition values  */
-    transition-property: color;
-    transition-property: background-color;
     
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-
-.button-filtr:last-child {
-    /* margin-right: 24px; */
 }
 
 .button-filtr:hover,
@@ -637,4 +681,6 @@ fill: #FFFFFF;
 }
 
 
-   .modal-icon {}
+   .modal-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   }
